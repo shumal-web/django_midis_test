@@ -1,0 +1,14 @@
+{% extends 'index.html' %}
+
+
+{% block content %}
+
+    <form class="loginform" method="POST">
+        <h1>Login</h1>
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button class="btn btn-success">Login</button> <br>
+        <p>Not Registered? </p>
+        <a href="{% url 'register_url' %}" class="btn btn-secondary">Register</a>
+    </form>
+{% endblock %}

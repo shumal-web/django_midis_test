@@ -1,0 +1,25 @@
+{% extends 'index.html' %}
+
+
+{% block content %}
+
+{% if user.is_authenticated %}
+    {% for emp in employees %}
+        <div class="emp_frame">
+            <h1>Employee name - {{emp.name}}</h1>
+            <h1>Employee exprience - {{emp.year_of_exp}} (Years)</h1>
+            <h1>Working field - {{emp.working_field}}</h1>
+        </div>
+
+    {% endfor %}
+
+{% else %}
+    <h1>You are not authorize to view this page</h1>
+    <p>To view this page content you have to login</p>
+    <a class="btn btn-success" href="{% url 'login_url'  %}">Login</a>
+
+{% endif %}
+
+
+
+{% endblock %}
